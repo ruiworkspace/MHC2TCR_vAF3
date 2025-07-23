@@ -12,6 +12,4 @@ This repository contains code for modeling interactions between T cell receptors
 - AlphaFold 3 (access required)
 - JAX, NumPy, Biopython, etc.
 
-## Getting Started
-```bash
-python run_af3_batch.py --input input_sequences.json --output results/
+
