@@ -1,4 +1,4 @@
-# AF3 TCR–pMHCII Interaction Screening
+# TCR–pMHCII Interaction Screening via AF3
 
 This repository contains code for modeling interactions between T cell receptors (TCRs) and MHC class II-peptide complexes using AlphaFold 3 (AF3).
 
