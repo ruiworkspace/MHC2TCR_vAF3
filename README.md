@@ -18,7 +18,7 @@ This repository contains code for modeling interactions between T cell receptors
 
 This script constructs full-length TCR sequences using defined variable (TRAV/TRBV), joining (TRAJ/TRBJ), constant (TCRAC/TCRBC), and linker segments, along with custom CDR3α and CDR3β sequences.
 
-**Input**
+**1.Input**
 
 CSV file with the following format:
 
@@ -31,7 +31,7 @@ sample2,CAASRDNYGGKLTF,CASSIRSSYEQYF
 Each row represents one TCR, with a unique name, the CDR3α sequence, and the CDR3β sequence.
 
 
-**Howtorun**
+**2.How to Run**
 
 Make sure to define your sequence components in the script:
 
@@ -52,7 +52,7 @@ run the script:
 python generate_tcr_sequences_from_csv.py
 ```
 
-**Output**
+**3.Output**
 
 The output is written to full_tcr_sequences.txt, in FASTA-like format:
 
