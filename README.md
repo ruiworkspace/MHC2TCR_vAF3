@@ -26,9 +26,10 @@ CSV file with the following format:
 name,cdr3a,cdr3b
 sample1,CAASGGSYIPTF,CASSLGQGTDTQYF
 sample2,CAASRDNYGGKLTF,CASSIRSSYEQYF
+```
 
 Each row represents one TCR, with a unique name, the CDR3α sequence, and the CDR3β sequence.
-```
+
 
 **Howtorun**
 
@@ -42,12 +43,14 @@ TRBV = "TRBVSEQUENCE"
 TRBJ = "TRBJSEQUENCE"
 TCRBC = "TCRBCSEQUENCE"
 linker = "GGGGS"
+```
 
 
 run the script:
 
 ```bash
 python generate_tcr_sequences_from_csv.py
+```
 
 **Output**
 
@@ -58,5 +61,6 @@ The output is written to full_tcr_sequences.txt, in FASTA-like format:
 TRAVSEQUENCECAASGGSYIPTFTRAJSEQUENCETCRACSEQUENCEGGGGSGGGGSGGGGSTRBVSEQUENCECASSLGQGTDTQYFTRBJSEQUENCETCRBCSEQUENCE
 >sample2
 TRAVSEQUENCECAASRDNYGGKLTFTRAJSEQUENCETCRACSEQUENCEGGGGSGGGGSGGGGSTRBVSEQUENCECASSIRSSYEQYFTRBJSEQUENCETCRBCSEQUENCE
+```
 
 
