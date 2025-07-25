@@ -14,11 +14,11 @@ This repository contains code for modeling interactions between T cell receptors
 
 ## WORKFLOW
 
-### Generate Full-Length TCR Sequences from CDR3 CSV
+### 1. Generate Full-Length TCR Sequences from CDR3 CSV
 
 This script constructs full-length TCR sequences using defined variable (TRAV/TRBV), joining (TRAJ/TRBJ), constant (TCRAC/TCRBC), and linker segments, along with custom CDR3α and CDR3β sequences.
 
-**1.Input**
+**a.Input**
 
 CSV file with the following format:
 
@@ -31,7 +31,7 @@ sample2,CAASRDNYGGKLTF,CASSIRSSYEQYF
 Each row represents one TCR, with a unique name, the CDR3α sequence, and the CDR3β sequence.
 
 
-**2.How to Run**
+**b.How to Run**
 
 Make sure to define your sequence components in the script:
 
@@ -52,7 +52,7 @@ run the script:
 python generate_tcr_sequences_from_csv.py
 ```
 
-**3.Output**
+**c.Output**
 
 The output is written to full_tcr_sequences.txt, in FASTA-like format:
 
@@ -63,4 +63,23 @@ TRAVSEQUENCECAASGGSYIPTFTRAJSEQUENCETCRACSEQUENCEGGGGSGGGGSGGGGSTRBVSEQUENCECASS
 TRAVSEQUENCECAASRDNYGGKLTFTRAJSEQUENCETCRACSEQUENCEGGGGSGGGGSGGGGSTRBVSEQUENCECASSIRSSYEQYFTRBJSEQUENCETCRBCSEQUENCE
 ```
 
+### 2. Using AF3 on the Computing Cluster 
 
+**this part refers to Albert's fork**
+
+
+- In log-in computing node, create an "input" and "output" directory
+- In the "input" directory, upload the jsons file
+  - You can put multiple jobs into a single JSON file by adding a comma after the last "}" and putting another block like this one (ie several blocks like this separated by commas and between the first "[" and the last "]".
+  - Or just put multiple JSON files in the inputs folder. This "server" JSON format is described here: https://github.com/google-deepmind/alphafold/tree/main/server There is a newer format that you can also use, see here: https://github.com/google-deepmind/alphafold3/blob/main/docs/input.md
+- Next, upload and the file "af3run.sh" in this repository.
+  - Edit the following line in "af3run.sh":
+```
+export OUTPUT_DIR="YOUR OUTPUT FOLDER DIRECTORY HERE"
+export INPUT_DIR="YOUR INPUT FOLDER DIRECTORY HERE"
+```
+- Now, you're ready to submit the job as follows in the directory of "af3run.sh" shell script:
+```
+sbatch af3run.sh
+```
+- Check the output slurm file for error messages; otherwise the final output should be accessible in the "OUTPUT_DIR" that was specified above.
